@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>compteur</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+<div id="monapp">
+  <button @click="changerTitre">{{ titre }}</button>
+  <p>Compteur : {{ compteur }}</p>
+</div>
+
+<script>
+const appli = {
+  data() {
+    return {
+      titre: "Cliquez moi!",
+      compteur: 0
+    };
+  },
+  methods: {
+    changerTitre() {
+      this.titre = "Cliqué!";
+      this.compteur++; 
+    }
+  }
+};
+
+Vue.createApp(appli).mount('#monapp');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Compteur3</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    #monapp {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    span {
+      font-size: 18px;
+      min-width: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="monapp">
+  <button @click="decrementer">--</button>
+  <span>{{ compteur }}</span>
+  <button @click="incrementer">++</button>
+</div>
+
+<script>
+const appli = {
+  data() {
+    return {
+      compteur: 0 // initialisation du compteur
+    };
+  },
+  methods: {
+    incrementer() {
+      // Méthode appelée au clic sur "++"
+      this.compteur++;
+    },
+    decrementer() {
+      // Méthode appelée au clic sur "--"
+      this.compteur--;
+    }
+  }
+};
+
+// Création et montage de l'application Vue
+Vue.createApp(appli).mount('#monapp');
+</script>
+
+</body>
+</html>

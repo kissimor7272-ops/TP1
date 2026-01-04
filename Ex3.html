@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Exercice 3</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+  p {
+    color: red;
+    /* Caché initialement */
+  }
+</style>
+</head>
+<body>
+
+<div id="monapp">
+  <input type="text" v-model="texte" @input="verifierEspaces" placeholder="Saisir sans espace">
+  <p v-show="messageVisible">⚠️ Les espaces ne sont pas autorisés !</p>
+</div>
+
+<script>
+const appli = {
+  data() {
+    return {
+      texte: '',          // La chaîne saisie par l'utilisateur
+      messageVisible: false // Contrôle l'affichage du message
+    };
+  },
+  methods: {
+    verifierEspaces() {
+      // Si la chaîne contient un espace, on affiche le message
+      this.messageVisible = this.texte.includes(' ');
+    }
+  }
+};
+
+// Création et montage de l'application Vue
+Vue.createApp(appli).mount("#monapp");
+</script>
+
+</body>
+</html>

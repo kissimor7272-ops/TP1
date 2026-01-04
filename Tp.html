@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title> étape 1</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+</head>
+<body>
+  <div id="monapp">
+    <!-- Pour l'instant rien d'affiché côté Vue (on vérifie que la propriété existe dans le code) -->
+  </div>
+
+  <script>
+    const appli = {
+      data() {
+        return {
+          titre: "Cliquez moi!"
+        };
+      }
+    };
+
+    Vue.createApp(appli).mount("#monapp");
+  </script>
+</body>
+</html>

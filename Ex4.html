@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Couleur de paragraphe avec Vue</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+  p {
+    font-size: 18px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+</style>
+</head>
+<body>
+
+<div id="monapp">
+  <h3>Couleur de police :</h3>
+
+  <!-- Boutons radio pour choisir la couleur -->
+  <label>
+    <input type="radio" v-model="couleur" value="red"> Rouge
+  </label>
+  <label>
+    <input type="radio" v-model="couleur" value="blue"> Bleu
+  </label>
+
+  <!-- Case à cocher pour afficher/cacher le paragraphe -->
+  <label>
+    <input type="checkbox" v-model="afficher" checked> Afficher/cacher le paragraphe ?
+  </label>
+
+  <!-- Paragraphe -->
+  <p v-show="afficher" :style="{ color: couleur }">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam pariatur  mollitia et, inventore delectus. Doloribus laudantium maiores at necessiti  ipsum disvinctio?
+  </p>
+</div>
+
+<script>
+const appli = {
+  data() {
+    return {
+      couleur: 'red',   // Couleur par défaut
+      afficher: true    // Par défaut, le paragraphe est affiché
+    };
+  }
+};
+
+Vue.createApp(appli).mount('#monapp');
+</script>
+
+</body>
+</html>
+
